@@ -1,11 +1,27 @@
-const express=require('express');
-const app= express();
-const port= 4000;
-const name='Paul Amani'
-app.get('/',(req,res)=>{
-    res.send(`<h1> load ballancer Demo App  </h1> <h4>Message:Success<h4> <p>Version: 1.0.0</p> by ${name}`)
+const http = require('http');
+
+const port = 4000;
+
+const server = http.createServer((req, res) => {
+
+    res.statusCode = 200;
+
+    res.setHeader('Content-Type', 'text/plain');
+
+    const message = "MSG "
+
+    res.end(message);
+
+
 });
 
-app.listen(port,()=>{
-    console.log(`Demo app is up and listening to port ${port} `)
+
+
+server.listen(port, () => {
+
+    console.log(`Server 1 running on ${port}`);
+
+
+
+
 });
